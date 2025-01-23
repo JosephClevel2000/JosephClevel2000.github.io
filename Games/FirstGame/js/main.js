@@ -9,6 +9,8 @@ const spriteWidth = 48;
 const spriteHeight = 48;
 let frameX = 0;
 let frameY = 2;
+let gameframe = 0;
+const staggerFrame = 5;
 
 const background = new Image();
 const onload = startGame;
@@ -20,8 +22,13 @@ function animate(){
   //ctx.fillRect(50,50,100,100);
   //ctx.drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh);
   ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
+  if(gameFrame % staggerFrame == 0){
+    
   if(frameX < 10) framex++;
   else frameX = 0;
+  }
+  
+  gameFrame++;
   requestAnimationFrame(animate);
 };
 animate();
