@@ -12,13 +12,8 @@ let frameY = 2;
 let gameframe = 0;
 const staggerFrame = 5;
 
-const background = new Image();
-background.src = 'Farm.jpg';
-
-
 function animate(){
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
-  ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
   //ctx.fillRect(50,50,100,100);
   //ctx.drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh);
   ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
