@@ -12,7 +12,7 @@ let frameY = 2;
 let gameFrame = 0;
 const staggerFrame = 15;
 let posX = 0;
-let posY = 555;
+let posY = 0;
 
 
 function animateRight(){
@@ -29,6 +29,9 @@ function animateRight(){
   requestAnimationFrame(animateRight);
 };
 function movement(){
+  node.addEventListener('keydown', (event) => {
+    const key = event.key; // "ArrowRight", "ArrowLeft", "ArrowUp", or "ArrowDown"
+  });
   switch (event.key) {
     case "ArrowLeft":
         // Left pressed
