@@ -1,13 +1,3 @@
-  /*----- constants -----*/
-
-
-  /*----- state variables -----*/
-
-
-  /*----- cached elements  -----*/
-
-
-  /*----- event listeners -----*/
-
-
-  /*----- functions -----*/
+const canvas = document.getElementById('canvas1');
+const ctx = canvas.getContext('2d');
+console.log(ctx);
