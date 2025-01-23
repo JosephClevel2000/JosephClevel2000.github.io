@@ -14,7 +14,7 @@ const staggerFrame = 15;
 
 function animate(){
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
-  ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 100, spriteWidth, spriteHeight);
+  ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 700, spriteWidth, spriteHeight);
 
   if (gameFrame % staggerFrame == 0){
   if(frameY < 3) frameY++;
