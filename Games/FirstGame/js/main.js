@@ -10,6 +10,10 @@ const spriteHeight = 48;
 let frameX = 0;
 let frameY = 2;
 
+const background = new Image();
+const onload = startGame;
+background.src = 'Farm.jpg';
+context.drawImage(background, 0, 0, canvas.width, canvas.height);
 
 function animate(){
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
