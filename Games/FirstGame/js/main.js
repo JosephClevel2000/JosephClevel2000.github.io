@@ -23,7 +23,7 @@ function animate(){
   ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
   if(gameFrame % staggerFrame == 0){
     
-  if(frameX < 10) framex++;
+  if(frameX < 5) framex++;
   else frameX = 0;
   }
   
