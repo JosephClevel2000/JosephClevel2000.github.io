@@ -7,15 +7,15 @@ const playerImage = new Image();
 playerImage.src ='Chickens.png';
 const spriteWidth = 48;
 const spriteHeight = 48;
-let framex = 0;
-let framey = 0;
+let frameX = 0;
+let frameY = 0;
 
 
 function animate(){
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
   //ctx.fillRect(50,50,100,100);
   //ctx.drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh);
-  ctx.drawImage(playerImage, framex * spriteWidth, framey * spriteHeight, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
+  ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
   requestAnimationFrame(animate);
 };
 animate();
