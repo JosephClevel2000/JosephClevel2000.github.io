@@ -4,7 +4,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-image: "Farm.jpg";
+  background-image: url("Farm.jpg");
   width: 1380px;
   height: 712px;
 }
