@@ -11,15 +11,18 @@ let frameX = 0;
 let frameY = 2;
 let gameFrame = 0;
 const staggerFrame = 15;
+let posX = 0;
+let posY = 555;
 
 
 function animateRight(){
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
-  ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 50, 555, spriteWidth, spriteHeight);
+  ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, posX, posY, spriteWidth, spriteHeight);
 
   if (gameFrame % staggerFrame == 0){
   if(frameY < 3) frameY++;
   else frameY = 2;
+  posX++;
   }
 
   gameFrame++;
