@@ -31,7 +31,7 @@ function movement(){
         // Left pressed
         break;
     case "ArrowRight":
-        animeRight();
+        animateRight();
         break;
     case "ArrowUp":
         // Up pressed
