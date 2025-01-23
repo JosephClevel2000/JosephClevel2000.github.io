@@ -13,7 +13,6 @@ let gameframe = 0;
 const staggerFrame = 5;
 
 const background = new Image();
-const onload = startGame;
 background.src = 'Farm.jpg';
 context.drawImage(background, 0, 0, canvas.width, canvas.height);
 
