@@ -12,7 +12,8 @@ let frameY = 2;
 let gameFrame = 0;
 const staggerFrame = 15;
 
-function animate(){
+
+function animateRight(){
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
   ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 50, 555, spriteWidth, spriteHeight);
 
@@ -22,6 +23,22 @@ function animate(){
   }
 
   gameFrame++;
-  requestAnimationFrame(animate);
+  requestAnimationFrame(animateRight);
 };
-animate();
+function movement(){
+  switch (event.key) {
+    case "ArrowLeft":
+        // Left pressed
+        break;
+    case "ArrowRight":
+        animeRight();
+        break;
+    case "ArrowUp":
+        // Up pressed
+        break;
+    case "ArrowDown":
+        // Down pressed
+        break;
+}
+};
+movement();
