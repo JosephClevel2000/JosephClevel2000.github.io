@@ -2,6 +2,8 @@ const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 const CANVAS_WIDTH = canvas.width = 1380;
 const CANVAS_HEIGHT = canvas.height = 712;
+const node = document.getElementById('canvas1');
+
 
 const playerImage = new Image();
 playerImage.src ='Chickens.png';
@@ -29,7 +31,7 @@ function animateRight(){
   requestAnimationFrame(animateRight);
 };
 
-node.addEventListener('keydown', (event) => {
+function handleKeydown(event) {
   const key = event.key;
   switch (event.key) {
     case "ArrowLeft":
@@ -44,4 +46,6 @@ node.addEventListener('keydown', (event) => {
     case "ArrowDown":
         // Down pressed
         break;
-});
+}};
+
+node.addEventListener('keydown', handleKeydown);
