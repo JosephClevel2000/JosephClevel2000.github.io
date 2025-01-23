@@ -10,7 +10,7 @@ const spriteHeight = 48;
 let frameX = 0;
 let frameY = 3;
 let gameFrame = 0;
-const staggerFrame = 10;
+const staggerFrame = 15;
 
 function animate(){
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
