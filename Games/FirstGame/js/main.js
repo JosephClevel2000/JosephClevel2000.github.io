@@ -15,10 +15,13 @@ const staggerFrame = 5;
 function animate(){
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
   ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 10, 0, spriteWidth, spriteHeight);
-    
+
+  if (gameFrame % staggerFrame == 0){
   if(frameY < 4) frameY++;
   else frameY = 2;
-  
+  }
+
+  gameFrame++;
   requestAnimationFrame(animate);
 };
 animate();
