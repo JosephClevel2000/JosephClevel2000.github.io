@@ -14,7 +14,12 @@ const staggerFrame = 5;
 
 const background = new Image();
 background.src = 'Farm.jpg';
-context.drawImage(background, 0, 0, canvas.width, canvas.height);
+
+function background(){
+  ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+  ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+  requestAnimationFrame(background);
+};
 
 function animate(){
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
@@ -30,4 +35,5 @@ function animate(){
   gameFrame++;
   requestAnimationFrame(animate);
 };
+background();
 animate();
