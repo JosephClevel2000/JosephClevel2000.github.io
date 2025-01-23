@@ -8,7 +8,7 @@ playerImage.src ='Chickens.png';
 const spriteWidth = 48;
 const spriteHeight = 48;
 let frameX = 0;
-let frameY = 2;
+let frameY = 0;
 let gameframe = 0;
 const staggerFrame = 5;
 
