@@ -14,10 +14,6 @@ const staggerFrame = 15;
 let posX = 0;
 let posY = 0;
 
-node.addEventListener('keydown', (event) => {
-  const key = event.key;
-});
-
 
 function animateRight(){
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
@@ -32,7 +28,9 @@ function animateRight(){
   gameFrame++;
   requestAnimationFrame(animateRight);
 };
-function movement(){
+
+node.addEventListener('keydown', (event) => {
+  const key = event.key;
   switch (event.key) {
     case "ArrowLeft":
         // Left pressed
@@ -46,6 +44,4 @@ function movement(){
     case "ArrowDown":
         // Down pressed
         break;
-}
-};
-movement();
+});
