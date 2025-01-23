@@ -47,5 +47,6 @@ function handleKeydown(event) {
         // Down pressed
         break;
 }};
+handleKeydown();
 
 node.addEventListener('keydown', handleKeydown);
