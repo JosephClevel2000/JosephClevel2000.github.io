@@ -8,17 +8,17 @@ playerImage.src ='Chickens.png';
 const spriteWidth = 48;
 const spriteHeight = 48;
 let frameX = 0;
-let frameY = 3;
+let frameY = 2;
 let gameFrame = 0;
 const staggerFrame = 15;
 
 function animate(){
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
-  ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 100, 0, spriteWidth, spriteHeight);
+  ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 100, spriteWidth, spriteHeight);
 
   if (gameFrame % staggerFrame == 0){
-  if(frameY < 4) frameY++;
-  else frameY = 3;
+  if(frameY < 3) frameY++;
+  else frameY = 2;
   }
 
   gameFrame++;
