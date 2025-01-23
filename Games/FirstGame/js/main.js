@@ -13,6 +13,6 @@ function animate(){
   //ctx.fillRect(50,50,100,100);
   //ctx.drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh);
   ctx.drawImage(playerImage, 0, 0, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
-  requestAnimeationFrame(animate);
+  requestAnimationFrame(animate);
 };
 animate();
