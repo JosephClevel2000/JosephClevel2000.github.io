@@ -16,6 +16,9 @@ let frameBottom = 0;
 let posX = 0;
 let posY = frameBottom;
 
+//Soundtrack
+
+
 
 //Setting up player's initial start point
 function initializePlayer(){
