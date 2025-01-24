@@ -17,7 +17,15 @@ let posX = 0;
 let posY = frameBottom;
 
 
+//Setting up player's initial start point
+function initializePlayer(){
+  ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+  ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, posX, posY, spriteWidth, spriteHeight);
+  requestAnimationFrame(animatePlayer);
+};
+initializePlayer();
 
+//Player Animation for movement
 function animatePlayer(keyInput){
   
   if(keyInput == "rightTrue"{
@@ -47,8 +55,8 @@ function animatePlayer(keyInput){
     return;
   }
 };
-animatePlayer();
 
+//Getting key input from user, i.e. is key on
 window.addEventListener("keydown", function (event) {
   if (event.defaultPrevented) {
     return; // Do nothing if the event was already processed
@@ -75,6 +83,7 @@ window.addEventListener("keydown", function (event) {
   event.preventDefault();
 }, true);
 
+//Getting key input from user, i.e. is key false
 window.addEventListener("keyup", function (event) {
   if (event.defaultPrevented) {
     return; // Do nothing if the event was already processed
