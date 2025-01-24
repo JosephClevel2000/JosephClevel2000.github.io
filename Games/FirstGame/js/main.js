@@ -12,7 +12,7 @@ let frameX = 0;
 let frameY = 2;
 let gameFrame = 0;
 const staggerFrame = 15;
-let frameBottom = 0;
+let frameBottom = 550;
 let posX = 0;
 let posY = frameBottom;
 
