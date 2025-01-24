@@ -50,7 +50,6 @@ function soundTrack() {
 
 //Initializing background
 function background(){
-  ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   ctx.drawImage(backgroundImage, back1, 0);
   ctx.drawImage(backgroundImage, back2, 0);
   if(back1 < -600) back1 = 600 + back2 - gameSpeed;
@@ -73,6 +72,7 @@ function initializePlayer(){
   gameFrame++;
   requestAnimationFrame(initializePlayer);
 };
+initializePlayer();
 
 //Initializing enemy
 
