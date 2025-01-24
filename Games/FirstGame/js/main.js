@@ -17,6 +17,13 @@ let posX = 0;
 let posY = frameBottom;
 
 //Variables for enemy
+const enemyImage = new Image();
+enemyImage.src = 'Ferrets.png';
+const enemyWidth = 48;
+const enemyHeight = 48;
+let frameEX = 0;
+let frameEY = 2;
+let posEX = 0;
 
 //Other variables
 const diesIrae = new Audio('WeaselChasing.mp3');
