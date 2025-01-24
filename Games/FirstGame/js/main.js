@@ -12,17 +12,20 @@ let frameX = 0;
 let frameY = 2;
 let gameFrame = 0;
 const staggerFrame = 15;
-let frameBottom = 500;
+let frameBottom = 550;
 let posX = 0;
 let posY = frameBottom;
 
 
 
-function animate(keyInput){
+function animatePlayer(keyInput){
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
   ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, posX, posY, spriteWidth, spriteHeight);
-  if(keyInput == "rightTrue"){
-  if(keyInput != "rightFalse"){
+  
+  if(keyInput == "rightTrue"{
+  if(keyInput == "rightFalse"){
+  return;
+  }
   ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, posX, posY, spriteWidth, spriteHeight);
   posX++;
   if (gameFrame % staggerFrame == 0){
@@ -30,12 +33,13 @@ function animate(keyInput){
   else frameY = 2;
   }
   gameFrame++;
-  requestAnimationFrame(animate);
-  }
+  requestAnimationFrame(animatePlayer);
   }
   
   else if(keyInput == "leftTrue"){
   if(keyInput != "leftFalse"){
+  return;
+  }
   ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, posX, posY, spriteWidth, spriteHeight);
   posX--;
   if (gameFrame % staggerFrame == 0){
@@ -43,11 +47,10 @@ function animate(keyInput){
   else frameY = 0;
   }
   gameFrame++;
-  requestAnimationFrame(animate);
-  }
+  requestAnimationFrame(animatePlayer);
   }
 };
-animate();
+animatePlayer();
 
 window.addEventListener("keydown", function (event) {
   if (event.defaultPrevented) {
@@ -62,10 +65,10 @@ window.addEventListener("keydown", function (event) {
       // code for "up arrow" key press.
       break;
     case "ArrowLeft":
-      animate("leftTrue");
+      animatePlayer("leftTrue");
       break;
     case "ArrowRight":
-      animate("rightTrue");
+      animatePlayer("rightTrue");
       break;
     default:
       return; // Quit when this doesn't handle the key event.
@@ -88,10 +91,10 @@ window.addEventListener("keyup", function (event) {
       // code for "up arrow" key press.
       break;
     case "ArrowLeft":
-      animate("leftFalse");
+      animatePlayer("leftFalse");
       break;
     case "ArrowRight":
-      animate(1);
+      animatePlayer("rightFalse");
       break;
     default:
       return; // Quit when this doesn't handle the key event.
