@@ -3,7 +3,7 @@ const ctx = canvas.getContext('2d');
 const CANVAS_WIDTH = canvas.width = 1380;
 const CANVAS_HEIGHT = canvas.height = 712;
 
-
+//Variables for game
 const playerImage = new Image();
 playerImage.src ='Chickens.png';
 const spriteWidth = 48;
@@ -13,7 +13,7 @@ let frameY = 2;
 let gameFrame = 0;
 const staggerFrame = 15;
 let frameBottom = 550;
-let posX = 0;
+let posX = 10;
 let posY = frameBottom;
 
 
@@ -24,6 +24,8 @@ function initializePlayer(){
   requestAnimationFrame(animatePlayer);
 };
 initializePlayer();
+
+//Setting up enemy's start point
 
 //Player Animation for movement
 function animatePlayer(keyInput){
@@ -51,7 +53,7 @@ function animatePlayer(keyInput){
   gameFrame++;
   requestAnimationFrame(animatePlayer);
   }
-  else if(keyInput == "rightFalse" || "leftFalse"){
+  else if(keyInput == "rightFalse" || "leftFalse" || "upFalse"){
     return;
   }
 };
@@ -63,9 +65,6 @@ window.addEventListener("keydown", function (event) {
   }
 
   switch (event.key) {
-    case "ArrowDown":
-      // code for "down arrow" key press.
-      break;
     case "ArrowUp":
       // code for "up arrow" key press.
       break;
@@ -90,11 +89,8 @@ window.addEventListener("keyup", function (event) {
   }
 
   switch (event.key) {
-    case "ArrowDown":
-      // code for "down arrow" key press.
-      break;
     case "ArrowUp":
-      // code for "up arrow" key press.
+      animePlayer('upFalse");
       break;
     case "ArrowLeft":
       animatePlayer("leftFalse");
