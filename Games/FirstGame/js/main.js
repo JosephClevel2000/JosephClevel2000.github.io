@@ -53,7 +53,7 @@ function animatePlayer(keyInput){
   gameFrame++;
   requestAnimationFrame(animatePlayer);
   }
-  else if(keyInput == "rightFalse" || "leftFalse" || "upFalse"){
+  else if(keyInput == "rightFalse" || keyInput == "leftFalse" || keyInput == "upFalse"){
     return;
   }
 };
