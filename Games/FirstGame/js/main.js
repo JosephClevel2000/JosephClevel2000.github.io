@@ -16,17 +16,25 @@ let posX = 0;
 let posY = 0;
 
 
-function animateRight(){
+function animate(keyInput){
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
   ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, posX, posY, spriteWidth, spriteHeight);
-
+  if(keyInput == 1){
   if (gameFrame % staggerFrame == 0){
   if(frameY < 3) frameY++;
   else frameY = 2;
   }
-
   gameFrame++;
-  requestAnimationFrame(animateRight);
+  requestAnimationFrame(animate);
+  }
+  else if(keyInput == 2){
+  if (gameFrame % staggerFrame == 0){
+  if(frameY < 1) frameY++;
+  else frameY = 0;
+  }
+  gameFrame++;
+  requestAnimationFrame(animate);
+  }
 };
 
 window.addEventListener("keydown", function (event) {
@@ -42,10 +50,10 @@ window.addEventListener("keydown", function (event) {
       // code for "up arrow" key press.
       break;
     case "ArrowLeft":
-      // code for "left arrow" key press.
+      animate(2);
       break;
     case "ArrowRight":
-      animateRight();
+      animate(1);
       break;
     default:
       return; // Quit when this doesn't handle the key event.
