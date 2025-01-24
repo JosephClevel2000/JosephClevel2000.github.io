@@ -1,10 +1,9 @@
 #canvas1{
   border: 5px black;
-  background-image: url("Farm.jpg");
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 1380px;
-  height: 712px;
+  width: 600px;
+  height: 300px;
 }
