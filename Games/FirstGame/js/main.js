@@ -19,13 +19,9 @@ let posY = frameBottom;
 
 
 function animatePlayer(keyInput){
-  ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
-  ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, posX, posY, spriteWidth, spriteHeight);
   
   if(keyInput == "rightTrue"{
-  if(keyInput == "rightFalse"){
-  return;
-  }
+  ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
   ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, posX, posY, spriteWidth, spriteHeight);
   posX++;
   if (gameFrame % staggerFrame == 0){
@@ -37,9 +33,7 @@ function animatePlayer(keyInput){
   }
   
   else if(keyInput == "leftTrue"){
-  if(keyInput != "leftFalse"){
-  return;
-  }
+  ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
   ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, posX, posY, spriteWidth, spriteHeight);
   posX--;
   if (gameFrame % staggerFrame == 0){
@@ -48,6 +42,9 @@ function animatePlayer(keyInput){
   }
   gameFrame++;
   requestAnimationFrame(animatePlayer);
+  }
+  else if(keyInput == "rightFalse" || "leftFalse"){
+    return;
   }
 };
 animatePlayer();
