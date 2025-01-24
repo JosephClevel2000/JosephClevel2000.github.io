@@ -26,7 +26,8 @@ let frameEY = 2;
 let posEX = 0;
 
 //Other variables
-const diesIrae = new Audio('WeaselChasing.mp3');
+const diesIrae = new Audio();
+diesIrae.src = 'WeaselChasing.mp3';
 
 //Soundtrack
 function soundtrack(){
@@ -34,20 +35,8 @@ function soundtrack(){
 };
 soundtrack();
 
-//Setting up player's initial start point
+//Initializing player
 function initializePlayer(){
-  ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-  ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, posX, posY, spriteWidth, spriteHeight);
-  requestAnimationFrame(initializePlayer);
-};
-initializePlayer();
-
-//Setting up enemy's start point
-
-//Player Animation for movement
-function animatePlayer(keyInput){
-  
-  if(keyInput == "rightTrue"{
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, posX, posY, spriteWidth, spriteHeight);
   posX++;
@@ -56,10 +45,19 @@ function animatePlayer(keyInput){
   else frameY = 2;
   }
   gameFrame++;
-  requestAnimationFrame(animatePlayer);
-  }
+  requestAnimationFrame(initializePlayer);
+};
+initializePlayer();
+
+//Initializing enemy
+
+//Initializing background
+
+
+//Player Animation for movement
+function animatePlayer(keyInput){
   
-  else if(keyInput == "leftTrue"){
+  if(keyInput == "upTrue"){
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, posX, posY, spriteWidth, spriteHeight);
   posX--;
@@ -70,7 +68,7 @@ function animatePlayer(keyInput){
   gameFrame++;
   requestAnimationFrame(animatePlayer);
   }
-  else if(keyInput == "rightFalse" || keyInput == "leftFalse" || keyInput == "upFalse"){
+  else if(keyInput == "upFalse"){
     return;
   }
 };
@@ -80,16 +78,9 @@ window.addEventListener("keydown", function (event) {
   if (event.defaultPrevented) {
     return; // Do nothing if the event was already processed
   }
-
   switch (event.key) {
     case "ArrowUp":
-      // code for "up arrow" key press.
-      break;
-    case "ArrowLeft":
-      animatePlayer("leftTrue");
-      break;
-    case "ArrowRight":
-      animatePlayer("rightTrue");
+      animatePlayer("upTrue");
       break;
     default:
       return; // Quit when this doesn't handle the key event.
@@ -108,12 +99,6 @@ window.addEventListener("keyup", function (event) {
   switch (event.key) {
     case "ArrowUp":
       animePlayer('upFalse");
-      break;
-    case "ArrowLeft":
-      animatePlayer("leftFalse");
-      break;
-    case "ArrowRight":
-      animatePlayer("rightFalse");
       break;
     default:
       return; // Quit when this doesn't handle the key event.
