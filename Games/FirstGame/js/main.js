@@ -31,7 +31,7 @@ const diesIrae = new Audio('WeaselChasing.mp3');
 //Soundtrack
 function soundtrack(){
   diesIrae.play();
-}
+};
 soundtrack();
 
 //Setting up player's initial start point
