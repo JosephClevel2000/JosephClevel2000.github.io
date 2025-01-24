@@ -1,7 +1,7 @@
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
-const CANVAS_WIDTH = canvas.width = 1380;
-const CANVAS_HEIGHT = canvas.height = 712;
+const CANVAS_WIDTH = canvas.width = 600;
+const CANVAS_HEIGHT = canvas.height = 300;
 
 //Variables for player
 const playerImage = new Image();
@@ -25,9 +25,16 @@ let frameEX = 0;
 let frameEY = 2;
 let posEX = 0;
 
-//Other variables
+//Sound variables
 const diesIrae = new Audio();
 diesIrae.src = 'WeaselChasing.mp3';
+
+//Background variables
+const backgroundImage = new Image();
+backgroundImage.src = 'Field.jpg';
+let back1 = 0;
+let back2 = 600;
+let gamespeed = 10
 
 //Is soundtrack loaded
 diesIrae.addEventListener('canplaythrough', function() {
@@ -41,6 +48,18 @@ function soundTrack() {
   });
 }
 
+//Initializing background
+function background(){
+  ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+  ctx.drawImage(backgroundImage, back1, 0);
+  ctx.drawImage(backgroundImage, back2, 0);
+  if(back1 < -600) back1 = 600 + back2 - gameSpeed;
+  else back1 -= gameSpeed;
+  if(back2 < -600) back2 = 600 + back1 - gameSpeed;
+  else back2 -= gameSpeed;
+  requestAnimationFrame(background);
+};
+background();
 
 //Initializing player
 function initializePlayer(){
@@ -50,14 +69,13 @@ function initializePlayer(){
   if(frameY < 3) frameY++;
   else frameY = 2;
   }
+  posX++;
   gameFrame++;
   requestAnimationFrame(initializePlayer);
 };
 initializePlayer();
 
 //Initializing enemy
-
-//Initializing background
 
 
 //Player Animation for movement
@@ -66,7 +84,7 @@ function animatePlayer(keyInput){
   if(keyInput == "upTrue"){
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, posX, posY, spriteWidth, spriteHeight);
-  posY++;
+  posY--;
   if (gameFrame % staggerFrame == 0){
   if(frameY < 1) frameY++;
   else frameY = 0;
