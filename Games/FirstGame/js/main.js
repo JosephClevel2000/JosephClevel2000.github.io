@@ -3,7 +3,7 @@ const ctx = canvas.getContext('2d');
 const CANVAS_WIDTH = canvas.width = 1380;
 const CANVAS_HEIGHT = canvas.height = 712;
 
-//Variables for game
+//Variables for player
 const playerImage = new Image();
 playerImage.src ='Chickens.png';
 const spriteWidth = 48;
@@ -16,8 +16,15 @@ let frameBottom = 0;
 let posX = 0;
 let posY = frameBottom;
 
-//Soundtrack
+//Variables for enemy
 
+//Other variables
+const diesIrae = new Audio('WeaselChasing.mp3');
+
+//Soundtrack
+function soundtrack(){
+  diesIrae.play();
+}
 
 
 //Setting up player's initial start point
