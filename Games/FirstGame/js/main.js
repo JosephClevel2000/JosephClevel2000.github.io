@@ -54,7 +54,7 @@ function background(){
     console.error("Background image not loaded yet!");
     return; // Exit if image is not ready
   }
-  
+  ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   ctx.drawImage(backgroundImage, back1, 0);
   ctx.drawImage(backgroundImage, back2, 0);
   if(back1 < -600) back1 = 600 + back2 - gameSpeed;
