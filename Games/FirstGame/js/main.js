@@ -29,11 +29,18 @@ let posEX = 0;
 const diesIrae = new Audio();
 diesIrae.src = 'WeaselChasing.mp3';
 
-//Soundtrack
-function soundTrack(){
-  diesIrae.play();
-};
-soundTrack();
+//Is soundtrack loaded
+diesIrae.addEventListener('canplaythrough', function() {
+  soundTrack();
+});
+
+// Play the soundtrack
+function soundTrack() {
+  diesIrae.play().catch(error => {
+    console.error("Error playing audio:", error);
+  });
+}
+
 
 //Initializing player
 function initializePlayer(){
