@@ -73,7 +73,6 @@ function initializePlayer(){
   gameFrame++;
   requestAnimationFrame(initializePlayer);
 };
-initializePlayer();
 
 //Initializing enemy
 
