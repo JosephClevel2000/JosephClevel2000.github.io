@@ -30,10 +30,10 @@ const diesIrae = new Audio();
 diesIrae.src = 'WeaselChasing.mp3';
 
 //Soundtrack
-function soundtrack(){
+function soundTrack(){
   diesIrae.play();
 };
-soundtrack();
+soundTrack();
 
 //Initializing player
 function initializePlayer(){
@@ -68,9 +68,6 @@ function animatePlayer(keyInput){
   gameFrame++;
   requestAnimationFrame(animatePlayer);
   }
-  else if(keyInput == "upFalse"){
-    return;
-  }
 };
 
 //Getting key input from user, i.e. is key on
@@ -98,7 +95,7 @@ window.addEventListener("keyup", function (event) {
 
   switch (event.key) {
     case "ArrowUp":
-      animePlayer('upFalse");
+      animatePlayer("upFalse");
       break;
     default:
       return; // Quit when this doesn't handle the key event.
