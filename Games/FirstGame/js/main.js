@@ -50,6 +50,11 @@ function soundTrack() {
 
 //Initializing background
 function background(){
+  if (!backgroundImage.complete) {
+    console.error("Background image not loaded yet!");
+    return; // Exit if image is not ready
+  }
+  
   ctx.drawImage(backgroundImage, back1, 0);
   ctx.drawImage(backgroundImage, back2, 0);
   if(back1 < -600) back1 = 600 + back2 - gameSpeed;
@@ -58,7 +63,11 @@ function background(){
   else back2 -= gameSpeed;
   requestAnimationFrame(background);
 };
-background();
+
+//Start running background function
+backgroundImage.onload = function() {
+  background(); // Start the animation once the image is loaded
+};
 
 //Initializing player
 function initializePlayer(){
