@@ -27,6 +27,7 @@ function animate(keyInput){
   }
   gameFrame++;
   requestAnimationFrame(animate);
+  ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, posX, posY, spriteWidth, spriteHeight);
   }
   }
   else if(keyInput == "rightTrue"){
@@ -37,9 +38,11 @@ function animate(keyInput){
   }
   gameFrame++;
   requestAnimationFrame(animate);
+  ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, posX, posY, spriteWidth, spriteHeight);
   }
   }
 };
+animate();
 
 window.addEventListener("keydown", function (event) {
   if (event.defaultPrevented) {
