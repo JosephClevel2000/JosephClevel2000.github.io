@@ -34,7 +34,7 @@ const backgroundImage = new Image();
 backgroundImage.src = 'Field.jpg';
 let back1 = 0;
 let back2 = 600;
-let gameSpeed = 10
+let gameSpeed = 3
 
 //Is soundtrack loaded
 diesIrae.addEventListener('canplaythrough', function() {
