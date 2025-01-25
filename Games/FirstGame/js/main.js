@@ -36,10 +36,14 @@ diesIrae.src = 'WeaselChasing.mp3';
 
 //Background variables
 const backgroundImage = new Image();
-backgroundImage.src = 'FieldAnimate.gif';
+backgroundImage.src = 'BackgroundSheet.png';
 let back1 = 0;
-let back2 = 600;
+let back2 = 640;
 let gameSpeed = 1
+let backFrameX = 0;
+let backFrameY = 0;
+let backWidth = 640;
+let backHeight = 342;
 
 //Is soundtrack loaded
 diesIrae.addEventListener('canplaythrough', function() {
@@ -76,11 +80,13 @@ function background(){
     return; // Exit if image is not ready
   }
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-  ctx.drawImage(backgroundImage, back1, 0);
-  ctx.drawImage(backgroundImage, back2, 0);
-  if(back1 < -600) back1 = 600 + back2 - gameSpeed;
+  ctx.drawImage(backgroundImage, backFrameX * backWidth, backFrameY * backHeight, backWidth, backHeight, back1, 0, backWidth, backHeight)
+  ctx.drawImage(backgroundImage, backFrameX * backWidth, backFrameY * backHeight, backWidth, backHeight, back2, 0, backWidth, backHeight)
+  if (backFrameY < 8) backFrameY++;
+  else backFrameY = 0;
+  if(back1 < -640) back1 = 640 + back2 - gameSpeed;
   else back1 -= gameSpeed;
-  if(back2 < -600) back2 = 600 + back1 - gameSpeed;
+  if(back2 < -640) back2 = 640 + back1 - gameSpeed;
   else back2 -= gameSpeed;
 };
 
