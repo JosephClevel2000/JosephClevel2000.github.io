@@ -66,7 +66,7 @@ let backGameFrame = 0;
 //Other variables
 let score = 0;
 const gameOverImage = new Image();
-backgroundImage.src = GameOver.jpg;
+gameOverImage.src = 'GameOver.jpg';
 let isOver = 0;
 
 //Is soundtrack loaded
