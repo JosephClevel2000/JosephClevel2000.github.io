@@ -156,9 +156,9 @@ function initializeEnemyLeft(){
 
 function detectCollision(){
 if (posX < posELX + enemyLeftWidth &&
-   posX + spriteWidth > posELX &&
-   posY < posELY + enemyLeftHeight &&
-   posY + spriteHeight > enemyLeftHeight) {
+      posX + spriteWidth > posELX &&
+      posY < posELY + enemyLeftHeight &&
+      posY + spriteHeight > posELY) {
     posEX++;
 }
 };
