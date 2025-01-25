@@ -84,7 +84,7 @@ function background(){
   ctx.drawImage(backgroundImage, backFrameX * backWidth, backFrameY * backHeight, backWidth, backHeight, back1, 0, backWidth, backHeight)
   ctx.drawImage(backgroundImage, backFrameX * backWidth, backFrameY * backHeight, backWidth, backHeight, back2, 0, backWidth, backHeight)
   if (backGameFrame % staggerFrame == 0){
-  if (backFrameY < 8) backFrameY++;
+  if (backFrameY < 7) backFrameY++;
   else backFrameY = 0;
   }
   backGameFrame++;
