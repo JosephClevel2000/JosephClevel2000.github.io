@@ -98,6 +98,7 @@ function gameLoop(){
   initializeEnemy();
   initializeEnemyLeft();
   detectCollision();
+  totalScore();
   gameOver();
   jumping();
   playerMovement();
@@ -172,6 +173,11 @@ if (posX < posEX + enemyWidth &&
    posY + spriteHeight > enemyHeight) {
     isOver = 1;
 }
+};
+
+function totalScore(){
+  ctx.font = "48px serif";
+  ctx.fillText("SCORE", 0, 0);
 };
 
 //Player Animation for movement
