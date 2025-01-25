@@ -140,8 +140,6 @@ function initializeEnemyLeft(){
   posELX--;
   if (posELX == 0) {
     posELX = 900;
-    staggerFrameEnemyLeft--;
-    score = score + 10;
   }
 };
 
