@@ -43,7 +43,7 @@ let frameELY = 2;
 let posELX = 900;
 let posELY = canvas.height - enemyLeftHeight;
 let gameFrameEnemyLeft = 0;
-let staggerFrameEnemyLeft = 25;
+let staggerFrameEnemyLeft = 10;
 let multiplyDistance = 1;
 
 
@@ -138,10 +138,9 @@ function initializeEnemyLeft(){
     else frameELX = 7;
   }
   gameFrameEnemyLeft++;
-  posELX = multiplyDistance * posELX--;
+  posELX--;
   if (posELX == 0) {
     posELX = 900;
-    multiplyDistance++;
   }
 };
 
