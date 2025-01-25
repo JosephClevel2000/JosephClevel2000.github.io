@@ -48,6 +48,17 @@ function soundTrack() {
   });
 }
 
+backgroundImage.onload = function() {
+  gameLoop(); // Start the animation loop
+};
+
+function gameLoop(){
+  ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+  background();
+  initializePlayer();
+  requestAnimationFrame(gameLoop);
+};
+
 //Initializing background
 function background(){
   if (!backgroundImage.complete) {
@@ -61,17 +72,10 @@ function background(){
   else back1 -= gameSpeed;
   if(back2 < -600) back2 = 600 + back1 - gameSpeed;
   else back2 -= gameSpeed;
-  requestAnimationFrame(background);
-};
-
-//Start running background function
-backgroundImage.onload = function() {
-  background(); // Start the animation once the image is loaded
 };
 
 //Initializing player
 function initializePlayer(){
-  ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, posX, posY, spriteWidth, spriteHeight);
   if (gameFrame % staggerFrame == 0){
   if(frameY < 3) frameY++;
@@ -79,7 +83,6 @@ function initializePlayer(){
   }
   //posX++;
   gameFrame++;
-  requestAnimationFrame(initializePlayer);
 };
 
 //Start running player function
