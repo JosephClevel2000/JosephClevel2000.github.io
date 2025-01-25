@@ -1,8 +1,8 @@
 //Initial construction
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
-const CANVAS_WIDTH = canvas.width = 640;
-const CANVAS_HEIGHT = canvas.height = 342;
+const CANVAS_WIDTH = canvas.width = 960;
+const CANVAS_HEIGHT = canvas.height = 540;
 
 //Variables for player
 const playerImage = new Image();
@@ -81,16 +81,11 @@ function background(){
     return; // Exit if image is not ready
   }
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-  ctx.drawImage(backgroundImage, backFrameX * backWidth, backFrameY * backHeight, backWidth, backHeight, back1, 0, backWidth, backHeight)
-  ctx.drawImage(backgroundImage, backFrameX * backWidth, backFrameY * backHeight, backWidth, backHeight, back2, 0, backWidth, backHeight)
-  if (backGameFrame % staggerFrame == 0){
-  if (backFrameY < 7) backFrameY++;
-  else backFrameY = 0;
-  }
-  backGameFrame++;
-  if(back1 < -640) back1 = 640 + back2 - gameSpeed;
+  ctx.drawImage(backgroundImage, back1, 0);
+  ctx.drawImage(backgroundImage, back2, 0);
+  if(back1 < -960) back1 = 960 + back2 - gameSpeed;
   else back1 -= gameSpeed;
-  if(back2 < -640) back2 = 640 + back1 - gameSpeed;
+  if(back2 < -960) back2 = 960 + back1 - gameSpeed;
   else back2 -= gameSpeed;
 };
 
