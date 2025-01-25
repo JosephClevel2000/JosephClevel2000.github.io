@@ -1,8 +1,8 @@
 //Initial construction
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
-const CANVAS_WIDTH = canvas.width = 600;
-const CANVAS_HEIGHT = canvas.height = 300;
+const CANVAS_WIDTH = canvas.width = 640;
+const CANVAS_HEIGHT = canvas.height = 342;
 
 //Variables for player
 const playerImage = new Image();
@@ -36,7 +36,7 @@ diesIrae.src = 'WeaselChasing.mp3';
 
 //Background variables
 const backgroundImage = new Image();
-backgroundImage.src = 'Field.jpg';
+backgroundImage.src = 'FieldAnimate.gif';
 let back1 = 0;
 let back2 = 600;
 let gameSpeed = 1
