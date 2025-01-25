@@ -97,9 +97,9 @@ function gameLoop(){
   initializePlayer();
   initializeEnemy();
   initializeEnemyLeft();
-  detectCollision();
+  //detectCollision();
   totalScore();
-  gameOver();
+  //gameOver();
   jumping();
   playerMovement();
   requestAnimationFrame(gameLoop);
