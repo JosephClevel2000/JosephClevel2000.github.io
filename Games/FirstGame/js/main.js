@@ -126,7 +126,7 @@ function playerMovement() {
 
 //Are they jumping
 function jumping(){
-document.addEventListener("keydown", (event) => {
+document.addEventListener("keydown" || "click", (event) => {
   if (event.key === "ArrowUp" && !isJumping) {
     isJumping = true;
     velocityY = -15; // Initial jump velocity
