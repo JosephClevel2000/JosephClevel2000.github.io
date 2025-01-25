@@ -65,6 +65,9 @@ let backGameFrame = 0;
 
 //Other variables
 let score = 0;
+const gameOverImage = new Image();
+backgroundImage.src = GameOver.jpg;
+let isOver = 0;
 
 //Is soundtrack loaded
 diesIrae.addEventListener('canplaythrough', function() {
@@ -85,11 +88,17 @@ backgroundImage.onload = function() {
 
 //Putting animations together under one umbrella.
 function gameLoop(){
+  if(isOver == 1){
+    ctx.drawImage(gameOver, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    return();
+  }
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   background();
   initializePlayer();
   initializeEnemy();
   initializeEnemyLeft();
+  detectCollision();
+  gameOver();
   jumping();
   playerMovement();
   requestAnimationFrame(gameLoop);
@@ -142,6 +151,27 @@ function initializeEnemyLeft(){
   if (posELX == 0) {
     posELX = 900;
   }
+};
+
+//Detect collision
+
+function detectCollision(){
+if (posX < posELX + enemyLeftWidth &&
+   posX + spriteWidth > posELX &&
+   posY < posELY + enemyLeftHeight &&
+   posY + spriteHeight > enemyLeftHeight) {
+    posEX++;
+}
+};
+
+//Gameover
+function gameOver(){
+if (posX < posEX + enemyWidth &&
+   posX + spriteWidth > posEX &&
+   posY < posEY + enemyHeight &&
+   posY + spriteHeight > enemyHeight) {
+    isOver = 1;
+}
 };
 
 //Player Animation for movement
