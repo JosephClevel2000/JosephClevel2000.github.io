@@ -15,7 +15,7 @@ let gameFrame = 0;
 const staggerFrame = 15;
 let frameBottom = 220;
 let posX = 120;
-let posY = frameBottom;
+let posY = 220;
 let isJumping = false;
 let velocityY = 0;
 const gravity = 0.5; // Strength of gravity
@@ -107,12 +107,12 @@ function initializeEnemy(){
 //Player Animation for movement
 function playerMovement() {
   if (isJumping) {
-    frameY += velocityY;
+    posY += velocityY;
     velocityY += gravity;
 
     // Check for ground collision
-    if (frameY + spriteHeight > canvas.height) {
-      frameY = canvas.height - spriteHeight;
+    if (posY + spriteHeight > frameBottom) {
+      posY = canvas.height - spriteHeight;
       velocityY = 0;
       isJumping = false;
     }
