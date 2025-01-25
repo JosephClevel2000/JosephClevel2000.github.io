@@ -196,6 +196,6 @@ function playerMovement() {
 document.addEventListener("keydown", (event) => {
   if ((event.key === "ArrowUp" || event.type === "click") && !isJumping) {
     isJumping = true;
-    velocityY = -15; // Initial jump velocity
+    velocityY = -20; // Initial jump velocity
   }
 });
