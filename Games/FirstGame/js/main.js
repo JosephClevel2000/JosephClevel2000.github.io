@@ -68,6 +68,7 @@ let score = 0;
 const gameOverImage = new Image();
 gameOverImage.src = 'GameOver.jpg';
 let isOver = 0;
+let counter = 1;
 
 //Is soundtrack loaded
 diesIrae.addEventListener('canplaythrough', function() {
@@ -150,7 +151,8 @@ function initializeEnemyLeft(){
   if (posELX == 0) {
     posELX = 900;
     score = score + 10;
-    if (posELX < 5){
+    counter++;
+    if (multiplyDistance < 5 && counter % 5 == 0){
     multiplyDistance++;
     }
   }
