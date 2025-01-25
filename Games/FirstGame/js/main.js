@@ -1,3 +1,4 @@
+//Initial construction
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 const CANVAS_WIDTH = canvas.width = 600;
@@ -24,7 +25,7 @@ const enemyHeight = 32;
 let frameEX = 0;
 let frameEY = 2;
 let posEX = 0;
-let posEY = 220;
+let posEY = 225;
 
 //Sound variables
 const diesIrae = new Audio();
@@ -104,15 +105,11 @@ function animatePlayer(keyInput){
   if(keyInput == "upTrue"){
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, posX, posY, spriteWidth, spriteHeight);
-  posY--;
-  if (gameFrame % staggerFrame == 0){
-  if(frameY < 1) frameY++;
-  else frameY = 0;
-  }
-  
-  gameFrame++;
+  posY = posY - 10;
   requestAnimationFrame(animatePlayer);
   }
+  else
+    return;
 };
 
 //Getting key input from user, i.e. is key on
