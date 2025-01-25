@@ -26,7 +26,7 @@ enemyImage.src = 'Ferrets.png';
 const enemyWidth = 32;
 const enemyHeight = 32;
 let frameEX = 0;
-let frameEY = 4;
+let frameEY = 2;
 let posEX = 10;
 let posEY = canvas.height - enemyHeight;
 
@@ -103,12 +103,9 @@ function initializePlayer(){
 function initializeEnemy(){
   ctx.drawImage(enemyImage, frameEX * enemyWidth, frameEY * enemyHeight, enemyWidth, enemyHeight, posEX, posEY, enemyWidth, enemyHeight);
   if (gameFrame % staggerFrame == 0){
-  if (frameEY < 6){
-    if(frameEX < 7) frameEX++;
+   if(frameEX < 2) frameEX++;
     else frameEX = 0;
-    frameEY = frameEY + 2;
   }
-  frameEY = 4
   gameFrame++;
 };
 
