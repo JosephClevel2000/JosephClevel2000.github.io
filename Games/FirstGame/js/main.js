@@ -44,6 +44,7 @@ let backFrameX = 0;
 let backFrameY = 0;
 let backWidth = 640;
 let backHeight = 342;
+let backGameFrame = 0;
 
 //Is soundtrack loaded
 diesIrae.addEventListener('canplaythrough', function() {
@@ -82,8 +83,11 @@ function background(){
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   ctx.drawImage(backgroundImage, backFrameX * backWidth, backFrameY * backHeight, backWidth, backHeight, back1, 0, backWidth, backHeight)
   ctx.drawImage(backgroundImage, backFrameX * backWidth, backFrameY * backHeight, backWidth, backHeight, back2, 0, backWidth, backHeight)
+  if (backGameFrame % staggerFrame == 0){
   if (backFrameY < 8) backFrameY++;
   else backFrameY = 0;
+  }
+  backGameFrame++;
   if(back1 < -640) back1 = 640 + back2 - gameSpeed;
   else back1 -= gameSpeed;
   if(back2 < -640) back2 = 640 + back1 - gameSpeed;
