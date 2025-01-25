@@ -38,7 +38,7 @@ const enemyLeftImage = new Image();
 enemyLeftImage.src = 'FerretsLeft.png';
 const enemyLeftWidth = 32;
 const enemyLeftHeight = 32;
-let frameELX = 7;
+let frameELX = 6;
 let frameELY = 6;
 let posELX = 900;
 let posELY = canvas.height - enemyLeftHeight;
@@ -130,11 +130,18 @@ function initializeEnemy(){
 function initializeEnemyLeft(){
   ctx.drawImage(enemyLeftImage, frameELX * enemyLeftWidth, frameELY * enemyLeftHeight, enemyLeftWidth, enemyLeftHeight, posELX, posELY, enemyLeftWidth, enemyLeftHeight);
   if (gameFrameEnemyLeft % staggerFrameEnemyLeft == 0){
-   if(frameELX > 0) frameELX--;
-    else frameELX = 7;
+    if(frameELY != 4){
+    if(frameELX > 0) frameELX--;
+    else frameELX = 7 && frameELY = 4;
+  }
+    else{
+      if(frameELX > 0 ) frameELX--;
+      else frameELX = 6 && frameELY = 6;
+    }
   }
   gameFrameEnemyLeft++;
   posELX--;
+  if (posELX == 0) posELX = 900;
 };
 
 //Player Animation for movement
