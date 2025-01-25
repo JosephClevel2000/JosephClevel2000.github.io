@@ -90,17 +90,16 @@ backgroundImage.onload = function() {
 function gameLoop(){
   if(isOver == 1){
     ctx.drawImage(gameOverImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    return();
+    return;
   }
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   background();
   initializePlayer();
   initializeEnemy();
   initializeEnemyLeft();
-  //detectCollision();
+  detectCollision();
   totalScore();
-  //gameOver();
-  jumping();
+  gameOver();
   playerMovement();
   requestAnimationFrame(gameLoop);
 };
@@ -194,12 +193,9 @@ function playerMovement() {
   }
 };
 
-//Are they jumping
-function jumping(){
 document.addEventListener("keydown", (event) => {
   if ((event.key === "ArrowUp" || event.type === "click") && !isJumping) {
     isJumping = true;
     velocityY = -15; // Initial jump velocity
   }
-})
-};
+});
