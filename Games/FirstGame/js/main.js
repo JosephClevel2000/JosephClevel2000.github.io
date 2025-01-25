@@ -48,10 +48,12 @@ function soundTrack() {
   });
 }
 
+//Start gameloop once background has been loaded.
 backgroundImage.onload = function() {
   gameLoop(); // Start the animation loop
 };
 
+//Putting animations together under one umbrella.
 function gameLoop(){
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   background();
