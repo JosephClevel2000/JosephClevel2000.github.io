@@ -18,7 +18,7 @@ let posX = 400;
 let posY = canvas.height - spriteHeight;
 let isJumping = false;
 let velocityY = 0;
-const gravity = 0.5; // Strength of gravity
+const gravity = 0.1; // Strength of gravity
 
 //Variables for enemy from  behind
 const enemyImage = new Image();
@@ -198,6 +198,6 @@ function playerMovement() {
 document.addEventListener("keydown", (event) => {
   if ((event.key === "ArrowUp" || event.type === "click") && !isJumping) {
     isJumping = true;
-    velocityY = -20; // Initial jump velocity
+    velocityY = -10; // Initial jump velocity
   }
 });
