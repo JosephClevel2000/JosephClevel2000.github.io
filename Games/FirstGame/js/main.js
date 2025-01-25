@@ -175,7 +175,7 @@ if (posX < posEX + enemyWidth &&
 
 function totalScore(){
   ctx.font = "48px serif";
-  ctx.fillText("SCORE", 0, 0);
+  ctx.fillText("SCORE: " + score, 20, 50);
 };
 
 //Player Animation for movement
