@@ -15,7 +15,7 @@ let gameFrame = 0;
 const staggerFrame = 15;
 let frameBottom = 220;
 let posX = 120;
-let posY = 300;
+let posY = 280;
 let isJumping = false;
 let velocityY = 0;
 const gravity = 0.5; // Strength of gravity
@@ -28,7 +28,7 @@ const enemyHeight = 32;
 let frameEX = 0;
 let frameEY = 2;
 let posEX = 0;
-let posEY = 300;
+let posEY = 280;
 
 //Sound variables
 const diesIrae = new Audio();
