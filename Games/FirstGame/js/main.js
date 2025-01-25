@@ -64,6 +64,7 @@ function gameLoop(){
   background();
   initializePlayer();
   initializeEnemy();
+  jumping();
   playerMovement();
   requestAnimationFrame(gameLoop);
 };
@@ -119,9 +120,11 @@ function playerMovement() {
 };
 
 //Are they jumping
+function jumping(){
 document.addEventListener("keydown", (event) => {
   if (event.key === "arrowUp" && !isJumping) {
     isJumping = true;
     velocityY = -10; // Initial jump velocity
   }
-});
+})
+};
