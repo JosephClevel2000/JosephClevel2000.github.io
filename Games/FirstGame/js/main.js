@@ -29,6 +29,9 @@ let frameEX = 0;
 let frameEY = 2;
 let posEX = 10;
 let posEY = canvas.height - enemyHeight;
+let gameFrameEnemy = 0;
+const staggerFrameEnemy = 15;
+
 
 //Variables for enemy from in front
 const enemyLeftImage = new Image();
@@ -39,6 +42,8 @@ let frameELX = 7;
 let frameELY = 6;
 let postELX = 900;
 let posELY = canvas.height - enemyLeftHeight;
+let gameFrameEnemyLeft = 0;
+const staggerFrameEnemyLeft = 15;
 
 
 //Sound variables
@@ -114,21 +119,21 @@ function initializePlayer(){
 //Initializing enemy
 function initializeEnemy(){
   ctx.drawImage(enemyImage, frameEX * enemyWidth, frameEY * enemyHeight, enemyWidth, enemyHeight, posEX, posEY, enemyWidth, enemyHeight);
-  if (gameFrame % staggerFrame == 0){
+  if (gameFrameEnemy % staggerFrameEnemy == 0){
    if(frameEX < 2) frameEX++;
     else frameEX = 0;
   }
-  gameFrame++;
+  gameFrameEnemy++;
 };
 
 //Initializing enemy in front
 function initializeEnemyLeft(){
   ctx.drawImage(enemyLeftImage, frameELX * enemyLeftWidth, frameELY * enemyLeftHeight, enemyLeftWidth, enemyLeftHeight, posELX, posELY, enemyLeftWidth, enemyLeftHeight);
-  if (gameFrame % staggerFrame == 0){
+  if (gameFrameEnemyLeft % staggerFrameEnemyLeft == 0){
    if(frameELX > 0) frameELX--;
     else frameELX = 7;
   }
-  gameFrame++;
+  gameFrameEnemyLeft++;
 };
 
 //Player Animation for movement
