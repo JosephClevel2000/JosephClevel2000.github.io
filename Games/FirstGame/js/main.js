@@ -24,6 +24,7 @@ const enemyHeight = 32;
 let frameEX = 0;
 let frameEY = 2;
 let posEX = 0;
+let posEY = 220;
 
 //Sound variables
 const diesIrae = new Audio();
@@ -89,7 +90,7 @@ function initializePlayer(){
 
 //Initializing enemy
 function initializeEnemy(){
-  ctx.drawImage(enemyImage, frameEX * enemyWidth, frameEY * enemyHeight, enemyWidth, enemyHeight, posEX, posY, enemyWidth, enemyHeight);
+  ctx.drawImage(enemyImage, frameEX * enemyWidth, frameEY * enemyHeight, enemyWidth, enemyHeight, posEX, posEY, enemyWidth, enemyHeight);
   if (gameFrame % staggerFrame == 0){
   if(frameEX < 2) frameEX++;
   else frameEX = 0;
