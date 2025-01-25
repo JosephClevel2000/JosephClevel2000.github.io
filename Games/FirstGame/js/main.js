@@ -130,14 +130,8 @@ function initializeEnemy(){
 function initializeEnemyLeft(){
   ctx.drawImage(enemyLeftImage, frameELX * enemyLeftWidth, frameELY * enemyLeftHeight, enemyLeftWidth, enemyLeftHeight, posELX, posELY, enemyLeftWidth, enemyLeftHeight);
   if (gameFrameEnemyLeft % staggerFrameEnemyLeft == 0){
-    if(frameELY != 4){
     if(frameELX > 0) frameELX--;
-    else frameELX = 7 && frameELY = 4;
-  }
-    else{
-      if(frameELX > 0 ) frameELX--;
-      else frameELX = 6 && frameELY = 6;
-    }
+    else frameELX = 7;
   }
   gameFrameEnemyLeft++;
   posELX--;
