@@ -16,6 +16,9 @@ const staggerFrame = 15;
 let frameBottom = 220;
 let posX = 120;
 let posY = frameBottom;
+let isJumping = false;
+let velocityY = 0;
+const gravity = 0.5; // Strength of gravity
 
 //Variables for enemy
 const enemyImage = new Image();
@@ -61,6 +64,7 @@ function gameLoop(){
   background();
   initializePlayer();
   initializeEnemy();
+  playerMovement();
   requestAnimationFrame(gameLoop);
 };
 
@@ -100,49 +104,24 @@ function initializeEnemy(){
 };
 
 //Player Animation for movement
-function animatePlayer(keyInput){
-  
-  if(keyInput == "upTrue"){
-  ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-  ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, posX, posY, spriteWidth, spriteHeight);
-  posY = posY--;
-  requestAnimationFrame(animatePlayer);
+function playerMovement() {
+  if (isJumping) {
+    frameY += velocityY;
+    velocityY += gravity;
+
+    // Check for ground collision
+    if (frameY + spriteHeight > canvas.height) {
+      frameY = canvas.height - spriteHeight;
+      velocityY = 0;
+      isJumping = false;
+    }
   }
-  else
-    return;
 };
 
-//Getting key input from user, i.e. is key on
-window.addEventListener("keydown", function (event) {
-  if (event.defaultPrevented) {
-    return; // Do nothing if the event was already processed
+//Are they jumping
+document.addEventListener("keydown", (event) => {
+  if (event.key === "arrowUp" && !isJumping) {
+    isJumping = true;
+    velocityY = -10; // Initial jump velocity
   }
-  switch (event.key) {
-    case "ArrowUp":
-      animatePlayer("upTrue");
-      break;
-    default:
-      return; // Quit when this doesn't handle the key event.
-  }
-
-  // Cancel the default action to avoid it being handled twice
-  event.preventDefault();
-}, true);
-
-//Getting key input from user, i.e. is key false
-window.addEventListener("keyup", function (event) {
-  if (event.defaultPrevented) {
-    return; // Do nothing if the event was already processed
-  }
-
-  switch (event.key) {
-    case "ArrowUp":
-      animatePlayer("upFalse");
-      break;
-    default:
-      return; // Quit when this doesn't handle the key event.
-  }
-
-  // Cancel the default action to avoid it being handled twice
-  event.preventDefault();
-}, true);
+});
