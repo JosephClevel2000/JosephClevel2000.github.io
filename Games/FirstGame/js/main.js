@@ -12,15 +12,15 @@ let frameX = 0;
 let frameY = 2;
 let gameFrame = 0;
 const staggerFrame = 15;
-let frameBottom = 200;
-let posX = 50;
+let frameBottom = 220;
+let posX = 120;
 let posY = frameBottom;
 
 //Variables for enemy
 const enemyImage = new Image();
 enemyImage.src = 'Ferrets.png';
-const enemyWidth = 48;
-const enemyHeight = 48;
+const enemyWidth = 32;
+const enemyHeight = 32;
 let frameEX = 0;
 let frameEY = 2;
 let posEX = 0;
@@ -58,6 +58,7 @@ function gameLoop(){
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   background();
   initializePlayer();
+  initializeEnemy();
   requestAnimationFrame(gameLoop);
 };
 
@@ -83,16 +84,18 @@ function initializePlayer(){
   if(frameY < 3) frameY++;
   else frameY = 2;
   }
-  //posX++;
   gameFrame++;
 };
 
-//Start running player function
-playerImage.onload = function(){
-initializePlayer();
-};
 //Initializing enemy
-
+function initializeEnemy(){
+  ctx.drawImage(enemyImage, frameEX * enemyWidth, frameEY * enemyHeight, enemyWidth, enemyHeight, posEX, posY, enemyWidth, enemyHeight);
+  if (gameFrame % staggerFrame == 0){
+  if(frameEX < 2) frameEX++;
+  else frameEX = 0;
+  }
+  gameFrame++;
+};
 
 //Player Animation for movement
 function animatePlayer(keyInput){
