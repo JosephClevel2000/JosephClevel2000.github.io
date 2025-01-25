@@ -93,7 +93,6 @@ function gameLoop(){
     return;
   }
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-  score++;
   background();
   initializePlayer();
   initializeEnemy();
@@ -150,6 +149,7 @@ function initializeEnemyLeft(){
   posELX--;
   if (posELX == 0) {
     posELX = 900;
+    score = score + 10;
   }
 };
 
@@ -161,6 +161,7 @@ if (posX < posELX + enemyLeftWidth &&
       posY < posELY + enemyLeftHeight &&
       posY + spriteHeight > posELY) {
     posEX++;
+    score--;
 }
 };
 
