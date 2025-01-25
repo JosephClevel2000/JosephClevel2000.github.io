@@ -134,6 +134,7 @@ function initializeEnemyLeft(){
     else frameELX = 7;
   }
   gameFrameEnemyLeft++;
+  posELX--;
 };
 
 //Player Animation for movement
