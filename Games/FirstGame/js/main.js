@@ -81,8 +81,11 @@ function initializePlayer(){
   gameFrame++;
   requestAnimationFrame(initializePlayer);
 };
-initializePlayer();
 
+//Start running player function
+playerImage.onload = function(){
+initializePlayer();
+};
 //Initializing enemy
 
 
