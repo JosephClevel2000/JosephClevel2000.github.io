@@ -43,7 +43,7 @@ let frameELY = 2;
 let posELX = 900;
 let posELY = canvas.height - enemyLeftHeight;
 let gameFrameEnemyLeft = 0;
-const staggerFrameEnemyLeft = 25;
+let staggerFrameEnemyLeft = 25;
 
 
 //Sound variables
@@ -133,14 +133,14 @@ function initializeEnemy(){
 function initializeEnemyLeft(){
   ctx.drawImage(enemyLeftImage, frameELX * enemyLeftWidth, frameELY * enemyLeftHeight, enemyLeftWidth, enemyLeftHeight, posELX, posELY, enemyLeftWidth, enemyLeftHeight);
   if (gameFrameEnemyLeft % staggerFrameEnemyLeft == 0){
-    if(frameELX > 0) frameELX--;
+    if(frameELX > 5) frameELX--;
     else frameELX = 7;
   }
   gameFrameEnemyLeft++;
   posELX--;
   if (posELX == 0) {
     posELX = 900;
-    staggerEnemyFrame--;
+    staggerFrameEnemyLeft--;
     score = score + 10;
   }
 };
