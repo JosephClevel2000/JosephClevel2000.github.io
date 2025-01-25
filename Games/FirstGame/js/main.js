@@ -36,7 +36,7 @@ diesIrae.src = 'WeaselChasing.mp3';
 
 //Background variables
 const backgroundImage = new Image();
-backgroundImage.src = 'BackgroundSheet.png';
+backgroundImage.src = 'Forest.png';
 let back1 = 0;
 let back2 = 640;
 let gameSpeed = 1
