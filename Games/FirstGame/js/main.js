@@ -150,7 +150,9 @@ function initializeEnemyLeft(){
   if (posELX == 0) {
     posELX = 900;
     score = score + 10;
+    if (posELX < 5){
     multiplyDistance++;
+    }
   }
 };
 
