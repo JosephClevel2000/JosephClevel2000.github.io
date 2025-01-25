@@ -89,7 +89,7 @@ backgroundImage.onload = function() {
 //Putting animations together under one umbrella.
 function gameLoop(){
   if(isOver == 1){
-    ctx.drawImage(gameOver, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    ctx.drawImage(gameOverImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     return();
   }
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
@@ -111,7 +111,6 @@ function background(){
     console.error("Background image not loaded yet!");
     return; // Exit if image is not ready
   }
-  ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   ctx.drawImage(backgroundImage, back1, 0);
   ctx.drawImage(backgroundImage, back2, 0);
   if(back1 < -960) back1 = 960 + back2 - gameSpeed;
@@ -198,7 +197,7 @@ function playerMovement() {
 //Are they jumping
 function jumping(){
 document.addEventListener("keydown", (event) => {
-  if (event.key === ("ArrowUp" || "click") && !isJumping) {
+  if ((event.key === "ArrowUp" || event.type === "click") && !isJumping) {
     isJumping = true;
     velocityY = -15; // Initial jump velocity
   }
