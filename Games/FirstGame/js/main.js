@@ -43,7 +43,7 @@ let frameELY = 6;
 let posELX = 900;
 let posELY = canvas.height - enemyLeftHeight;
 let gameFrameEnemyLeft = 0;
-const staggerFrameEnemyLeft = 15;
+const staggerFrameEnemyLeft = 25;
 
 
 //Sound variables
@@ -61,6 +61,9 @@ let backFrameY = 0;
 let backWidth = 640;
 let backHeight = 342;
 let backGameFrame = 0;
+
+//Other variables
+let score = 0;
 
 //Is soundtrack loaded
 diesIrae.addEventListener('canplaythrough', function() {
@@ -135,7 +138,11 @@ function initializeEnemyLeft(){
   }
   gameFrameEnemyLeft++;
   posELX--;
-  if (posELX == 0) posELX = 900;
+  if (posELX == 0) {
+    posELX = 900;
+    staggerEnemyFrame--;
+    score = score + 10;
+  }
 };
 
 //Player Animation for movement
