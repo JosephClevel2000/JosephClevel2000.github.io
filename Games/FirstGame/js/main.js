@@ -55,7 +55,7 @@ const backgroundImage = new Image();
 backgroundImage.src = 'Forest.png';
 let back1 = 0;
 let back2 = 960;
-let gameSpeed = 2;
+let gameSpeed = 1;
 let backFrameX = 0;
 let backFrameY = 0;
 let backWidth = 640;
@@ -140,6 +140,7 @@ function initializeEnemyLeft(){
   posELX--;
   if (posELX == 0) {
     posELX = 900;
+    gameSpeed++;
   }
 };
 
