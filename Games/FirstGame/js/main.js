@@ -12,7 +12,7 @@ let frameX = 0;
 let frameY = 2;
 let gameFrame = 0;
 const staggerFrame = 15;
-let frameBottom = 0;
+let frameBottom = 150;
 let posX = 0;
 let posY = frameBottom;
 
@@ -34,7 +34,7 @@ const backgroundImage = new Image();
 backgroundImage.src = 'Field.jpg';
 let back1 = 0;
 let back2 = 600;
-let gameSpeed = 0
+let gameSpeed = 1
 
 //Is soundtrack loaded
 diesIrae.addEventListener('canplaythrough', function() {
@@ -83,7 +83,7 @@ function initializePlayer(){
   if(frameY < 3) frameY++;
   else frameY = 2;
   }
-  //posX++;
+  posX++;
   gameFrame++;
 };
 
