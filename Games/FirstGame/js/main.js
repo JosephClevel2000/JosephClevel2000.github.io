@@ -49,7 +49,7 @@ let multiplyDistance = 1;
 
 //Sound variables
 const diesIrae = new Audio();
-diesIrae.src = 'WeaselChasing.mp3';
+diesIrae.src = 'DiesIrae.mp3';
 
 //Background variables
 const backgroundImage = new Image();
@@ -146,10 +146,11 @@ function initializeEnemyLeft(){
     else frameELX = 7;
   }
   gameFrameEnemyLeft++;
-  posELX--;
+  posELX-= multiplyDistance;
   if (posELX == 0) {
     posELX = 900;
     score = score + 10;
+    multiplyDistance++;
   }
 };
 
@@ -196,8 +197,8 @@ function playerMovement() {
 };
 
 document.addEventListener("keydown", (event) => {
-  if ((event.key === "ArrowUp" || event.type === "click") && !isJumping) {
+  if ((event.key === ' ' || event.type === "click") && !isJumping) {
     isJumping = true;
-    velocityY = -7; // Initial jump velocity
+    velocityY = -6; // Initial jump velocity
   }
 });
