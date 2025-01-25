@@ -105,7 +105,7 @@ function animatePlayer(keyInput){
   if(keyInput == "upTrue"){
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, posX, posY, spriteWidth, spriteHeight);
-  posY = posY - 10;
+  posY = posY--;
   requestAnimationFrame(animatePlayer);
   }
   else
