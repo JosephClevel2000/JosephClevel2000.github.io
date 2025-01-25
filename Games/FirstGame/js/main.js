@@ -93,6 +93,7 @@ function gameLoop(){
     return;
   }
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+  score++;
   background();
   initializePlayer();
   initializeEnemy();
