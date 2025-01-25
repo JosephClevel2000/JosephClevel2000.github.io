@@ -129,7 +129,7 @@ function jumping(){
 document.addEventListener("keydown", (event) => {
   if (event.key === "ArrowUp" && !isJumping) {
     isJumping = true;
-    velocityY = -10; // Initial jump velocity
+    velocityY = -15; // Initial jump velocity
   }
 })
 };
