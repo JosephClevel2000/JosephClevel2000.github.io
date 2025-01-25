@@ -165,7 +165,9 @@ if (posX < posELX + enemyLeftWidth &&
       posX + spriteWidth > posELX &&
       posY < posELY + enemyLeftHeight &&
       posY + spriteHeight > posELY) {
+    if (posEX < posX){
     posEX++;
+    }
 }
 };
 
