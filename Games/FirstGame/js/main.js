@@ -44,6 +44,7 @@ let posELX = 900;
 let posELY = canvas.height - enemyLeftHeight;
 let gameFrameEnemyLeft = 0;
 let staggerFrameEnemyLeft = 25;
+let multiplyDistance = 1;
 
 
 //Sound variables
@@ -55,7 +56,7 @@ const backgroundImage = new Image();
 backgroundImage.src = 'Forest.png';
 let back1 = 0;
 let back2 = 960;
-let gameSpeed = 1;
+let gameSpeed = 2;
 let backFrameX = 0;
 let backFrameY = 0;
 let backWidth = 640;
@@ -137,10 +138,10 @@ function initializeEnemyLeft(){
     else frameELX = 7;
   }
   gameFrameEnemyLeft++;
-  posELX--;
+  posELX = multiplyDistance * posELX--;
   if (posELX == 0) {
     posELX = 900;
-    gameSpeed++;
+    multiplyDistance++;
   }
 };
 
