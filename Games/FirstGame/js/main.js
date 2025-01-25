@@ -14,13 +14,13 @@ let frameY = 2;
 let gameFrame = 0;
 const staggerFrame = 15;
 let frameBottom = 220;
-let posX = 120;
+let posX = 400;
 let posY = canvas.height - spriteHeight;
 let isJumping = false;
 let velocityY = 0;
 const gravity = 0.5; // Strength of gravity
 
-//Variables for enemy
+//Variables for enemy from  behind
 const enemyImage = new Image();
 enemyImage.src = 'Ferrets.png';
 const enemyWidth = 32;
@@ -29,6 +29,17 @@ let frameEX = 0;
 let frameEY = 2;
 let posEX = 10;
 let posEY = canvas.height - enemyHeight;
+
+//Variables for enemy from in front
+const enemyLeftImage = new Image();
+enemyLeftImage.src = 'FerretsLeft.png';
+const enemyLeftWidth = 32;
+const enemyLeftHeight = 32;
+let frameELX = 7;
+let frameELY = 6;
+let postELX = 900;
+let posELY = canvas.height - enemyLeftHeight;
+
 
 //Sound variables
 const diesIrae = new Audio();
@@ -69,6 +80,7 @@ function gameLoop(){
   background();
   initializePlayer();
   initializeEnemy();
+  initializeEnemyLeft();
   jumping();
   playerMovement();
   requestAnimationFrame(gameLoop);
@@ -105,6 +117,16 @@ function initializeEnemy(){
   if (gameFrame % staggerFrame == 0){
    if(frameEX < 2) frameEX++;
     else frameEX = 0;
+  }
+  gameFrame++;
+};
+
+//Initializing enemy in front
+function initializeEnemyLeft(){
+  ctx.drawImage(enemyLeftImage, frameELX * enemyLeftWidth, frameELY * enemyLeftHeight, enemyLeftWidth, enemyLeftHeight, posELX, posELY, enemyLeftWidth, enemyLeftHeight);
+  if (gameFrame % staggerFrame == 0){
+   if(frameELX > 0) frameELX--;
+    else frameELX = 7;
   }
   gameFrame++;
 };
