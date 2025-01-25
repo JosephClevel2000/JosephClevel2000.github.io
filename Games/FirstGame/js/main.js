@@ -161,7 +161,6 @@ if (posX < posELX + enemyLeftWidth &&
       posY < posELY + enemyLeftHeight &&
       posY + spriteHeight > posELY) {
     posEX++;
-    score--;
 }
 };
 
@@ -177,6 +176,7 @@ if (posX < posEX + enemyWidth &&
 
 function totalScore(){
   ctx.font = "48px serif";
+  ctx.strokeStyle = "white";
   ctx.fillText("SCORE: " + score, 20, 50);
 };
 
@@ -198,6 +198,6 @@ function playerMovement() {
 document.addEventListener("keydown", (event) => {
   if ((event.key === "ArrowUp" || event.type === "click") && !isJumping) {
     isJumping = true;
-    velocityY = -10; // Initial jump velocity
+    velocityY = -7; // Initial jump velocity
   }
 });
