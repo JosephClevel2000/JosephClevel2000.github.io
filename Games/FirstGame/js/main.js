@@ -111,8 +111,7 @@ function playerMovement() {
     velocityY += gravity;
 
     // Check for ground collision
-    if (posY + spriteHeight > frameBottom) {
-      posY = canvas.height - spriteHeight;
+    if (posY + spriteHeight < frameBottom) {
       velocityY = 0;
       isJumping = false;
     }
